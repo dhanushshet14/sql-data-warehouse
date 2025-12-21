@@ -75,31 +75,76 @@ These insights empower stakeholders with key business metrics, enabling strategi
 
 For more details, refer to [docs/requirements.md](docs/requirements.md).
 
+## 🚀 Getting Started
+
+### Prerequisites
+- SQL Server Express (free download)
+- SQL Server Management Studio (SSMS)
+- Basic knowledge of SQL and data warehousing concepts
+
+### Quick Start
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/dhanushshet14/sql-data-warehouse.git
+   cd sql-data-warehouse
+   ```
+
+2. **Set up the database**
+   - Run `scripts/init_database.sql` to create the initial database structure
+
+3. **Load sample data**
+   - Import CSV files from `datasets/` folders into your SQL Server instance
+   - Execute bronze layer scripts to create raw data tables
+   - Run silver layer transformations for data cleansing
+   - Deploy gold layer star schema for analytics
+
+4. **Explore the documentation**
+   - Review data architecture diagrams in `docs/`
+   - Check data catalog for field descriptions
+   - Run quality tests from `tests/` folder
+
 ## 📂 Repository Structure
 ```
-data-warehouse-project/
+sql-data-warehouse/
 │
 ├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
+│   ├── source_crm/                     # CRM system data files
+│   │   ├── cust_info.csv              # Customer information
+│   │   ├── prd_info.csv               # Product information
+│   │   └── sales_details.csv          # Sales transaction details
+│   └── source_erp/                     # ERP system data files
+│       ├── CUST_AZ12.csv              # Customer data from ERP
+│       ├── LOC_A101.csv               # Location data
+│       └── PX_CAT_G1V2.csv            # Product category data
 │
 ├── docs/                               # Project documentation and architecture details
-│   ├── etl.drawio                      # Draw.io file shows all different techniquies and methods of ETL
-│   ├── data_architecture.drawio        # Draw.io file shows the project's architecture
-│   ├── data_catalog.md                 # Catalog of datasets, including field descriptions and metadata
-│   ├── data_flow.drawio                # Draw.io file for the data flow diagram
-│   ├── data_models.drawio              # Draw.io file for data models (star schema)
-│   ├── naming-conventions.md           # Consistent naming guidelines for tables, columns, and files
+│   ├── data_architecture.png          # Data architecture diagram
+│   ├── data_catalog.md                # Catalog of datasets with field descriptions
+│   ├── data_flow.png                  # Data flow diagram
+│   ├── data_integration.png           # Data integration overview
+│   ├── data_layers.pdf                # Medallion architecture layers documentation
+│   ├── data_model.png                 # Star schema data model
+│   ├── ETL.png                        # ETL process diagram
+│   └── naming_conventions.md          # Naming guidelines for tables and columns
 │
 ├── scripts/                            # SQL scripts for ETL and transformations
-│   ├── bronze/                         # Scripts for extracting and loading raw data
-│   ├── silver/                         # Scripts for cleaning and transforming data
-│   ├── gold/                           # Scripts for creating analytical models
+│   ├── bronze/                         # Scripts for raw data ingestion
+│   │   ├── ddl_bronze.sql             # Bronze layer table definitions
+│   │   └── proc_load_bronze.sql       # Bronze layer data loading procedures
+│   ├── silver/                         # Scripts for data cleansing and transformation
+│   │   ├── ddl_silver.sql             # Silver layer table definitions
+│   │   └── proc_load_silver.sql       # Silver layer transformation procedures
+│   ├── gold/                           # Scripts for analytical data models
+│   │   └── ddl_gold.sql               # Gold layer star schema definitions
+│   └── init_database.sql              # Database initialization script
 │
-├── tests/                              # Test scripts and quality files
+├── tests/                              # Data quality and validation tests
+│   ├── quality_checks_gold.sql        # Quality checks for gold layer
+│   └── quality_checks_silver.sql      # Quality checks for silver layer
 │
 ├── README.md                           # Project overview and instructions
-├── LICENSE                             # License information for the repository
-├── .gitignore                          # Files and directories to be ignored by Git
-└── requirements.txt                    # Dependencies and requirements for the project
+├── LICENSE                             # MIT License
+└── .$Archi.drawio.bkp                 # Architecture diagram backup
 ```
 ---
 
@@ -108,15 +153,8 @@ data-warehouse-project/
 
 This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
 
-## 🌟 About Me
+## 🌟 About
 
 Hi there! I'm **Baraa Khatib Salkini**, also known as **Data With Baraa**. I’m an IT professional and passionate YouTuber on a mission to share knowledge and make working with data enjoyable and engaging!
 
-Let's stay in touch! Feel free to connect with me on the following platforms:
 
-[![YouTube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](http://bit.ly/3GiCVUE)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/baraa-khatib-salkini)
-[![Website](https://img.shields.io/badge/Website-000000?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.datawithbaraa.com)
-[![Newsletter](https://img.shields.io/badge/Newsletter-FF5722?style=for-the-badge&logo=substack&logoColor=white)](https://bit.ly/BaraaNewsletter)
-[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/baraasalkini)
-[![Join](https://img.shields.io/badge/Join-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@datawithbaraa)
